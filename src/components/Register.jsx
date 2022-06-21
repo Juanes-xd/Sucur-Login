@@ -1,14 +1,34 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState,useContext} from 'react'
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 import './Register.css';
-
+import { createContext } from "react";
 const Register = () => {
 
+    const userContext = createContext();
+  	const {verificarAutenticada} = userContext;
+
+    const navigate = useNavigate();
+    
     const [register, setRegister] = useState({
         nombre:'',
         lastName:'',
         email:'',
         password_:''
     })
+
+    useEffect(() => {
+
+		const elem = window.localStorage.getItem('usuario')
+        const dato = elem ? JSON.parse(elem) : null
+
+		if(dato){
+			verificarAutenticada();
+			navigate("/dashboard");
+			return <></>
+		}
+
+	}, [])
 
 
     const handleSubmit = async (e) =>{
@@ -21,6 +41,15 @@ const Register = () => {
         })
         const data = await res.json()
         console.log(data)
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Usuario Creado Con exito',
+            showConfirmButton: false,
+            timer: 3000,
+        }).then(function() {
+            navigate("/login");
+        });
     };
 
     const handleChange = (e) =>{
@@ -40,7 +69,7 @@ const Register = () => {
     <section className="Register">
     <section className="Inicia-sesion">
         <a >¿Ya tienes cuenta?</a>
-        <button className='Button-inicia'>Iniciar sesion</button>
+        <button className='Button-inicia'><a href='/login'>Iniciar sesion</a></button>
     </section>
     <section className="Register__container">
     <h2 className="regis">Registrate</h2>

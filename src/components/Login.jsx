@@ -1,29 +1,96 @@
-import React, {useState} from 'react'
+import React, {useState,useContext,useEffect} from 'react'
+import Swal from 'sweetalert2';
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 import './Login.css';
-
+import { createContext } from "react";
 const Login = () => {
+    
 
-    const [register, setRegister] = useState({
-        email:'',
-        password_:''
-    })
+    const UserContext = createContext()
+    const userContext = useContext(UserContext);
+    const {darDatos, verificarAutenticada} = userContext;
 
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) =>{
-        e.preventDefault();
-        
-   const res =   await  fetch('http://localhost:5000/signUp', {
-            method: 'POST',
-            body:JSON.stringify(register),
-            headers: {'Content-Type': 'application/json' }
-        })
-        const data = await res.json()
-        console.log(data)
-    };
+  const [body, setBody] = useState({ usuario: '', password: '' })
+  
 
-    const handleChange = (e) =>{
-        setRegister({...register,[e.target.name]: e.target.value});
-    }
+  useEffect(() => {
+
+      const elem = window.localStorage.getItem('usuario')
+      const dato = elem ? JSON.parse(elem) : null
+
+      if(dato){
+          verificarAutenticada();
+          navigate("/dashboard");
+          return <></>
+      }
+
+  }, [])
+  
+  const handleChange = (e) => {
+      setBody({...body,[e.target.name]: e.target.value});
+  }
+
+  const handleSubmit = async (e) =>{
+
+      e.preventDefault();
+
+      try{
+
+          const res = await axios.post('', body); 
+          console.log(res.data[0])
+          if( res.data.length > 0 ){
+
+              Swal.fire({
+                  title: 'Verificando informacion',
+                  timer: 1000,
+                  timerProgressBar: true,
+                  didOpen: () => {
+                      Swal.showLoading()
+                  }
+              }).then(() => {
+
+                  Swal.fire({
+                      icon: 'success',
+                      title: 'Bienvenido a SucurSalud '+ res.data[0].nombre,
+                      showConfirmButton: false,
+                      timer: 3000,
+                  }).then(function() {
+                      darDatos(res.data[0])
+                      navigate("/dashboard");
+                  });
+                      
+              })
+              
+          }
+          else{
+
+              Swal.fire({
+                  title: 'Verificando informacion',
+                  timer: 1000,
+                  timerProgressBar: true,
+                  didOpen: () => {
+                      Swal.showLoading()
+                  }
+              }).then(() => {
+                  Swal.fire({
+                      icon: 'error',
+                      title: 'No estás registrado',
+                      showConfirmButton: false,
+                      timer: 2000,
+                  });
+              })
+              
+          }
+                  
+
+      }catch(e){
+          console.log(e)
+      }
+      
+  };
 
     return (
         <div>
@@ -54,7 +121,7 @@ const Login = () => {
     </section>
     <section className="Registrate">
         <a>¿No tienes cuenta?</a>
-        <button className="button-register">Registrarme</button>
+        <button className="button-register"><a href='/register'>Registrarme</a></button>
     </section>
     </section>
     </main>
