@@ -2,33 +2,19 @@ import React, {useState,useContext,useEffect} from 'react'
 import Swal from 'sweetalert2';
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-import './Login.css';
+import '../Styles/Login.css';
 import { createContext } from "react";
 const Login = () => {
     
 
-    const UserContext = createContext()
-    const userContext = useContext(UserContext);
-    const {darDatos, verificarAutenticada} = userContext;
+   
 
   const navigate = useNavigate();
 
   const [body, setBody] = useState({ usuario: '', password: '' })
   
 
-  useEffect(() => {
-
-      const elem = window.localStorage.getItem('usuario')
-      const dato = elem ? JSON.parse(elem) : null
-
-      if(dato){
-          verificarAutenticada();
-          navigate("/dashboard");
-          return <></>
-      }
-
-  }, [])
-  
+ 
   const handleChange = (e) => {
       setBody({...body,[e.target.name]: e.target.value});
   }
@@ -58,7 +44,7 @@ const Login = () => {
                       showConfirmButton: false,
                       timer: 3000,
                   }).then(function() {
-                      darDatos(res.data[0])
+                      
                       navigate("/dashboard");
                   });
                       

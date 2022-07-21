@@ -1,12 +1,11 @@
 import React, {useEffect, useState,useContext} from 'react'
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
-import './Register.css';
+import '../Styles/Register.css';
 import { createContext } from "react";
 const Register = () => {
 
-    const userContext = createContext();
-  	const {verificarAutenticada} = userContext;
+   
 
     const navigate = useNavigate();
     
@@ -17,20 +16,7 @@ const Register = () => {
         password_:''
     })
 
-    useEffect(() => {
-
-		const elem = window.localStorage.getItem('usuario')
-        const dato = elem ? JSON.parse(elem) : null
-
-		if(dato){
-			verificarAutenticada();
-			navigate("/dashboard");
-			return <></>
-		}
-
-	}, [])
-
-
+    
     const handleSubmit = async (e) =>{
         e.preventDefault();
         
