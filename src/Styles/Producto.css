@@ -4,7 +4,7 @@
     box-sizing: border-box;
   }
   
-  body {
+  .bodyP {
     margin: 0;
    
     background: rgb(231, 221, 221);
@@ -19,4 +19,35 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  
+
+.container{
+  display: flex;
+         align-items: center;
+         justify-content:space-around;
+         
+         padding: 0px 160px;
+}
+
+  .card{
+    
+    width: 250px;
+    height: 330px;
+    margin-top: 20px;
+    border-color: darkolivegreen;
+    
+  }
+
+  .card-img-top{
+      height: 190px;
+  }
+
+  .btn{
+    --bs-btn-padding-x: 40px;
+    margin-left: 6px;
+  }
+  .card-text{
+    margin-left: 65px;
+  }
+  .card-title{
+    margin-left: 35px;
+  }
