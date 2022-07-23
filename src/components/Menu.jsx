@@ -1,6 +1,7 @@
 import React, {useEffect, useState,useContext} from 'react'
 import { useNavigate } from "react-router-dom";
 import images from '../assets/imagenes.js'
+import Boton from './Succes';
 import '../Styles/Menu.css'
 
 
@@ -25,6 +26,7 @@ const Menu = () => {
     <h5  class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 10.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
+    <Boton/>
   </div>
     </div>
   </div>

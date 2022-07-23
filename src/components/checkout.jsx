@@ -17,7 +17,7 @@ export default class Checkout extends Component {
           currency: "cop",
           amount: '8000',
           tax_base: '7000',
-          tax:  '1000',
+          tax:'1000',
           country: "co",
           lang: "en",
           external: "false"
@@ -26,11 +26,11 @@ export default class Checkout extends Component {
     }
     render(){
         return(
-                <React.Fragment>
-                    <button className='btn1' type="button" class="btn btn-danger"
-                    onClick={this.openchekout}
-                    >Pagar</button>
-                    </React.Fragment>
+        <React.Fragment>
+             <button className='btn1' type="button" class="btn btn-danger"
+                onClick={this.openchekout}
+                >Pagar</button>
+        </React.Fragment>
        
         )
     } 
