@@ -25,12 +25,9 @@ export default class Checkout extends Component {
         handler.open(data);
     }
     render(){
-       
-	
         return(
-
                 <React.Fragment>
-                    <button type="button" class="btn btn-danger"
+                    <button className='btn1' type="button" class="btn btn-danger"
                     onClick={this.openchekout}
                     >Pagar</button>
                     </React.Fragment>

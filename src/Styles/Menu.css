@@ -44,10 +44,19 @@
   .btn{
     --bs-btn-padding-x: 40px;
     margin-left: 6px;
+    
   }
   .card-text{
     margin-left: 65px;
+    -webkit-text-stroke: medium;
   }
   .card-title{
     margin-left: 35px;
   }
+
+  .name{
+    text-decoration: none;
+    color: black;
+  }
+
+ 

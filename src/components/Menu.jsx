@@ -1,11 +1,10 @@
 import React, {useEffect, useState,useContext} from 'react'
 import { useNavigate } from "react-router-dom";
 import images from '../assets/imagenes.js'
+import '../Styles/Menu.css'
 
-import '../Styles/Producto.css'
 
-
-const Producto = () => {
+const Menu = () => {
 
 
   return (
@@ -23,7 +22,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.gemiled} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5  class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 10.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -33,7 +32,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.bloqueador} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 15.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -43,7 +42,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.benet} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 35.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -53,7 +52,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.listerine} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 8.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -63,7 +62,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.papel} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 2.300</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -73,7 +72,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.pañales} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 15.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -83,7 +82,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.pilas} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 11.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -93,7 +92,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.raid} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 9.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -103,7 +102,7 @@ const Producto = () => {
   <div class="card" style={{width: "250px", height: "330px"}}>
     <img src={images.yodora} class="card-img-top" alt="..."/>
    <div class="card-body">
-    <h5 class="card-title">Acetaminofen</h5>
+    <h5 class="card-title"><a className='name' href="">Acetaminofen</a></h5>
     <p class="card-text">$ 13.000</p>
     <a href="#" class="btn btn-success">Agregar al carrito</a>
   </div>
@@ -117,4 +116,4 @@ const Producto = () => {
   )
 }
 
-export default Producto
+export default Menu
